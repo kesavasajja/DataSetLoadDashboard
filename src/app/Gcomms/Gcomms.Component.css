@@ -1,0 +1,63 @@
+
+.fw{
+  font-weight: bold;
+}
+
+
+font-color {
+
+  color: black;
+  font-weight: bold;
+
+}
+
+#searchBar{
+  padding: 20px;
+}
+
+
+.activeTabColor{
+  color: #fff;
+  background-color: #000000;
+}
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-top-left-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+}
+
+.pageColor{
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: white!important;
+  background-color: black!important;
+  border: 1px solid #dee2e6;
+}
+.notAllowed{
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  cursor: not-allowed;
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+
+
+

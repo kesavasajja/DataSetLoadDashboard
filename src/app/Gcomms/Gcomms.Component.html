@@ -1,0 +1,317 @@
+
+<div class="input-group">
+  <div class="form-outline">
+    <input type="search" id="form1" placeholder="Search" class="form-control" [(ngModel)]="searchText" />
+  </div>
+  <button type="button" class="btn btn-primary">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+     <!-- NExTool Datasets 1-{{Pagesize}} (Total:{{totalNExtoolDatasetsCount}}) -->
+      </div>
+      <div class="card-body position-relative">
+
+        <div class="table-responsive cnstr-record companie-tbl">
+          <table class="table table-bordered heading-hvr">
+            <thead>
+              <tr>
+                <th scope="col" class="fw" (click)="sort('dataset_name')">Dataset Name&nbsp;<i class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" (click)="sort('age_of_data')">Age Of Data&nbsp;<i class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" (click)="sort('frequency_Internally')">Frequency&nbsp;<i class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" (click)="sort('status')">Status&nbsp;<i class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" (click)="sort('source')">Responsible Team&nbsp;<i class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" (click)="sort('delivery_method')">Delivery Method&nbsp;<i class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" (click)="sort('delivery_date')">Delivery Date&nbsp;<i class="fa fa-sort"></i></th>
+
+                <th scope="col" class="fw" (click)="sort('frequency_from_OS')">Frequency From OS&nbsp;<i class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" (click)="sort('next_Update')">Next Update&nbsp;<i class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" (click)="sort('used_by')">Used By&nbsp;<i class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" (click)="sort('supply_format')">Comments&nbsp;<i class="fa fa-sort"></i></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dataset of data | orderBy: key: reverse | filter:searchText ">
+                <td>{{dataset.dataset_name}}</td>
+                <td>{{dataset.age_of_data}}</td>
+                <td>{{dataset.frequency_Internally}}</td>
+                <td>{{dataset.status}}</td>
+                <td>{{dataset.source}}</td>
+                <td>{{dataset.delivery_method}}</td>
+                <td>{{dataset.delivery_date}}</td>
+                <td>{{dataset.frequency_from_OS}}</td>
+                <td>{{dataset.next_Update}}</td>
+                <td>{{dataset.used_by}}</td>
+                <td>{{dataset.supply_format}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <!-- Code by pagination -->
+         <div class="container mw-100">
+          <div class="row">
+            <div class="col-md-3"> </div>
+            <div *ngIf="data.length !=0" class="col-md-6">
+              <ul class="pagination justify-content-center">
+                <li *ngFor="let page of pageField;let i=index" class="page-item">
+                  <a (click)="showDatasetsByPageNumber(page,i)"
+                  [ngClass]="pageNumber[i] ? 'pageColor':'page-link'"
+                    style=" margin-right: 5px;;margin-top: 5px">{{page}}
+                  </a>
+
+                </li>
+              </ul>
+              <div style="text-align: center;">
+                <!-- Page {{this.currentPage}} of Total page {{totalPage}} -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="input-group">
+  <div class="form-outline">
+    <input type="search" id="searchBar" placeholder="Search" class="form-control" [(ngModel)]="searchText" />
+  </div>
+  <button type="button" class="btn btn-primary">
+    <i class="fas fa-search"></i>
+  </button>
+
+  <div class="col px-md-5" >
+  <div class="btn btn-primary btn-sm"  type="button">
+    <select id="PerPage"  class="font-color" class="form-control" [(ngModel)]="pageSize">
+      <option [ngValue]="5">5</option>
+      <option [ngValue]="10">10</option>
+      <option [ngValue]="15">15</option>
+      <option [ngValue]="20">20</option>
+      <option [ngValue]="30">30</option>
+  </select>
+  </div>
+</div>
+</div>
+ -->
+
+
+<!--Table shown here-->
+<!-- <div class="overflow-auto p-1"  bassHorizontalScroll>
+<table  class="table mt-4" class="table table-striped table-bordered table-hover">
+  <thead >
+      <tr >
+          <th scope="col" class="fw" (click)="sort('dataset_name')">Dataset Name&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" class="fw" (click)="sort('age_of_data')">Age Of Data&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" class="fw" (click)="sort('frequency_Internally')">Frequency&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" class="fw" (click)="sort('status')">Status&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" class="fw" (click)="sort('source')">Responsible Team&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" class="fw" (click)="sort('delivery_method')">Delivery Method&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" class="fw" (click)="sort('delivery_date')">Delivery Date&nbsp;<i class="fa fa-sort"></i></th>
+
+          <th scope="col" class="fw" (click)="sort('frequency_from_OS')">Frequency From OS&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" class="fw" (click)="sort('next_Update')">Next Update&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" class="fw" (click)="sort('used_by')">Used By&nbsp;<i class="fa fa-sort"></i></th>
+          <th scope="col" class="fw" (click)="sort('supply_format')">Comments&nbsp;<i class="fa fa-sort"></i></th>
+
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let dataset of _datasets | orderBy: key: reverse | filter:searchText  |  paginate: {itemsPerPage: pageSize, currentPage: p}" >
+
+          <td>{{dataset.dataset_name}}</td>
+          <td>{{dataset.age_of_data}}</td>
+          <td>{{dataset.frequency_Internally}}</td>
+          <td>{{dataset.status}}</td>
+          <td>{{dataset.source}}</td>
+          <td>{{dataset.delivery_method}}</td>
+          <td>{{dataset.delivery_date}}</td>
+          <td>{{dataset.frequency_from_OS}}</td>
+          <td>{{dataset.next_Update}}</td>
+          <td>{{dataset.used_by}}</td>
+          <td>{{dataset.supply_format}}</td>
+
+          <td> -->
+             <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="populateForm(dataset)">
+  Edit
+</button>
+&nbsp;
+
+              <button (click)="deleteDataset(dataset)" class="btn btn-danger">Delete</button> -->
+          <!-- </td>
+      </tr>
+  </tbody> -->
+
+   <!-- <mat-paginator [length]="50"
+              showFirstLastButtons
+              [pageSizeOptions]="[5, 10, 25, 40]"
+              aria-label="Select page">
+</mat-paginator> -->
+<!-- </table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div> -->
+
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Dataset Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form">
+          <div class="card-body form-row">
+
+                  <div class="form-group col-md-6">
+                      <label for="DatasetName">Dataset Name</label>
+                      <input type="text" formControlName="DatasetName" class="form-control" [(ngModel)]="dataset.dataset_name" required>
+
+         <div *ngIf="control['DatasetName'].touched && control['DatasetName'].invalid" class="DatasetName" style="color: red;">
+          <div *ngIf="control['DatasetName'].errors && control['DatasetName'].errors['required']">Dataset Name is required!</div>
+          <div *ngIf="control['DatasetName'].errors && control['DatasetName'].errors['pattern']">Invalid!</div>
+        </div>
+                  </div>
+
+                  <div class="form-group col-sm-6">
+                      <label for="AgeOfData">Age Of Data</label>
+                      <input type="text" formControlName="AgeOfData" class="form-control" [(ngModel)]="dataset.age_of_data" required>
+
+         <div *ngIf="control['AgeOfData'].touched && control['AgeOfData'].invalid" class="AgeOfData" style="color: red;">
+          <div *ngIf="control['AgeOfData'].errors && control['AgeOfData'].errors['required']">Age Of Data is required!</div>
+          <div *ngIf="control['AgeOfData'].errors && control['AgeOfData'].errors['pattern']">Invalid!</div>
+        </div>
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="Frequency">Frequency</label>
+                    <input type="text" formControlName="Frequency" class="form-control" [(ngModel)]="dataset.frequency_Internally" required>
+
+         <div *ngIf="control['Frequency'].touched && control['Frequency'].invalid" class="Frequency" style="color: red;">
+          <div *ngIf="control['Frequency'].errors && control['Frequency'].errors['required']">Frequency is required!</div>
+          <div *ngIf="control['Frequency'].errors && control['Frequency'].errors['pattern']">Invalid!</div>
+        </div>
+                </div>
+
+
+
+                 <div class="form-group col-sm-6">
+                  <label for="status">Status</label>
+                  <input type="text" formControlName="status" class="form-control" [(ngModel)]="dataset.status" required>
+
+         <div *ngIf="control['status'].touched && control['status'].invalid" class="status" style="color: red;">
+          <div *ngIf="control['status'].errors && control['status'].errors['required']">Status is required!</div>
+          <div *ngIf="control['status'].errors && control['status'].errors['pattern']">Invalid!</div>
+        </div>
+              </div>
+
+                <div class="form-group col-sm-6">
+                  <label for="source">Responsible Team</label>
+                  <input type="text" formControlName="source" class="form-control" [(ngModel)]="dataset.source" required>
+
+         <div *ngIf="control['source'].touched && control['source'].invalid" class="source" style="color: red;">
+          <div *ngIf="control['source'].errors && control['source'].errors['required']">Responsible Team is required!</div>
+          <div *ngIf="control['source'].errors && control['source'].errors['pattern']">Invalid!</div>
+        </div>
+              </div>
+
+
+              <div class="form-group col-sm-6">
+                <label for="delivery_method">Delivery Method</label>
+                <input type="text" formControlName="delivery_method" class="form-control" [(ngModel)]="dataset.delivery_method" required>
+
+        <div *ngIf="control['delivery_method'].touched && control['delivery_method'].invalid" class="delivery_method" style="color: red;">
+        <div *ngIf="control['delivery_method'].errors && control['delivery_method'].errors['required']">Delivery Method is required!</div>
+        <div *ngIf="control['delivery_method'].errors && control['delivery_method'].errors['pattern']">Invalid!</div>
+        </div>
+            </div>
+
+
+            <div class="form-group col-sm-6">
+              <label for="delivery_date">Delivery Date</label>
+              <input type="text" formControlName="delivery_date" class="form-control" [(ngModel)]="dataset.delivery_date" required>
+
+        <div *ngIf="control['delivery_date'].touched && control['delivery_date'].invalid" class="delivery_date" style="color: red;">
+        <div *ngIf="control['delivery_date'].errors && control['delivery_date'].errors['required']">Delivery Date is required!</div>
+        <div *ngIf="control['delivery_date'].errors && control['delivery_date'].errors['pattern']">Invalid!</div>
+        </div>
+          </div>
+
+
+          <div class="form-group col-sm-6">
+            <label for="frequency_from_OS">Frequency From OS</label>
+            <input type="text" formControlName="frequency_from_OS" class="form-control" [(ngModel)]="dataset.frequency_from_OS" required>
+
+        <div *ngIf="control['frequency_from_OS'].touched && control['frequency_from_OS'].invalid" class="frequency_from_OS" style="color: red;">
+        <div *ngIf="control['frequency_from_OS'].errors && control['frequency_from_OS'].errors['required']">Frequency From OS is required!</div>
+        <div *ngIf="control['frequency_from_OS'].errors && control['frequency_from_OS'].errors['pattern']">Invalid!</div>
+        </div>
+        </div>
+
+
+        <div class="form-group col-sm-6">
+          <label for="next_Update">Next Update</label>
+          <input type="text" formControlName="next_Update" class="form-control" [(ngModel)]="dataset.next_Update" required>
+
+        <div *ngIf="control['next_Update'].touched && control['next_Update'].invalid" class="next_Update" style="color: red;">
+        <div *ngIf="control['next_Update'].errors && control['next_Update'].errors['required']">Next Update is required!</div>
+        <div *ngIf="control['next_Update'].errors && control['next_Update'].errors['pattern']">Invalid!</div>
+        </div>
+        </div>
+
+
+
+              <div class="form-group col-sm-6">
+                <label for="usedBy">Used By</label>
+                <input type="text" formControlName="usedBy" class="form-control"  [(ngModel)]="dataset.used_by" required >
+
+         <div *ngIf="control['usedBy'].touched && control['usedBy'].invalid" class="usedBy" style="color: red;">
+          <div *ngIf="control['usedBy'].errors && control['usedBy'].errors['required']">Used By is required!</div>
+          <div *ngIf="control['usedBy'].errors && control['usedBy'].errors['pattern']">Invalid!</div>
+        </div>
+            </div>
+
+
+            <div class="form-group col-sm-6">
+              <label for="supplyFormat">Comments</label>
+              <input type="text" formControlName="supplyFormat" class="form-control" [(ngModel)]="dataset.supply_format" required >
+
+         <div *ngIf="control['supplyFormat'].touched && control['supplyFormat'].invalid" class="supplyFormat" style="color: red;">
+          <div *ngIf="control['supplyFormat'].errors && control['supplyFormat'].errors['required']">Comments are required!</div>
+          <div *ngIf="control['supplyFormat'].errors && control['supplyFormat'].errors['pattern']">Invalid!</div>
+        </div>
+          </div>
+
+          <div class="form-group col-sm-6">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)="updateDataset(dataset)">Save changes</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+</div> -->

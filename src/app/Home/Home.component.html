@@ -1,0 +1,65 @@
+
+<div class="card-row-action" >
+<div class="row  flex-column align-items-end">
+   <a class="btn btn-primary btn-lg" href="datasets" role="button">
+   <i class="fa-solid fa-plus"></i></a> &nbsp;
+</div>
+</div>
+
+<div class="row">
+  <div class="col-lg-8">
+    <div class="container">
+      <div class="card mt-2">
+        <div class="card-body">
+          <h4 class="card-title">Bar Chart</h4>
+          <canvas
+            baseChart
+            [data]="salesData"
+            [type]="'bar'"
+            [options]="chartOptions"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-lg-4">
+
+
+  <div class="row  flex-column align-items-middle">
+     <!-- <a class="btn btn-primary btn-lg" href="datasets" role="button">Add Dataset</a> &nbsp; -->
+    <div class="col-md-12">
+
+      <div class="card card-1">
+        <h3>In Progress</h3>
+        <p>10 Datasets</p>
+      </div>
+    </div>
+    &nbsp;
+    <div class="col-md-12">
+      <div class="card card-2">
+        <h3>Received</h3>
+        <p>20 Datasets</p>
+      </div>
+    </div>
+    &nbsp;
+
+    <div class="col-md-12">
+      <div class="card card-3">
+        <h3>Completed</h3>
+        <p>10 Datasets</p>
+      </div>
+    </div>
+    &nbsp;
+
+    <div class="col-md-12">
+      <div class="card card-4">
+        <h3>On Hold</h3>
+        <p>2 Datasets</p>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>
