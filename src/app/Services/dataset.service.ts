@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { DbName } from '../Home/datasets/dataset.model';
 import { DbNameModel } from '../Home/datasets/datasets';
+import { AllDatasetsComponent } from 'src/app/all-datasets/all-datasets.component';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,12 @@ export class DatasetService {
     }
 
 
+    getTotalDatasetsCount(): Observable<DbName[]>
+    {
+         return this._http.get<DbName[]>(this.baseUrl+'/getGcommsDatasetsCount');
+    }
+
+
 
   getDatasetsPagination(id : any): Observable<DbNameModel[]>
   {
@@ -50,6 +57,26 @@ export class DatasetService {
     {
          return this._http.get<DbName[]>(this.baseUrl+'/getDatasetsNExTool');
       }
+
+      getDatasetsInProgress(): Observable<DbName[]>
+      {
+           return this._http.get<DbName[]>(this.baseUrl+'/getDatasetsInProgress');
+      }
+
+      getDatasetsOnHold(): Observable<DbName[]>
+      {
+           return this._http.get<DbName[]>(this.baseUrl+'/getDatasetsOnHold');
+      }
+
+      getDatasetsReceived(): Observable<DbName[]>
+      {
+           return this._http.get<DbName[]>(this.baseUrl+'/getDatasetsReceived');
+      }
+
+        getDatasetsCompleted(): Observable<DbName[]>
+      {
+           return this._http.get<DbName[]>(this.baseUrl+'/getDatasetsCompleted');
+        }
 
       getBarChartDatasets(): Observable<DbName[]>
       {

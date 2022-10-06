@@ -25,7 +25,9 @@ export class DatasetsComponent implements OnInit {
     frequency_from_OS:'',
     next_Update:'',
     used_by:'',
-    supply_format:''
+    supply_format:'',
+    status_ID: 0,
+
 
   }
 
@@ -43,6 +45,7 @@ export class DatasetsComponent implements OnInit {
       next_Update:['',[Validators.required]],
       usedBy: ['',[Validators.required]],
       supplyFormat: ['',[Validators.required]],
+      status_ID: ['',[Validators.required]]
 
 
     })
@@ -109,7 +112,9 @@ export class DatasetsComponent implements OnInit {
         frequency_from_OS:'',
         next_Update:'',
         used_by:'',
-        supply_format:''
+        supply_format:'',
+        status_ID: 0,
+
      };
      }
    );

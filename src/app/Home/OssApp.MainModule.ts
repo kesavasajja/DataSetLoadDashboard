@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import {FormsModule} from "@angular/forms"
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 import {RouterModule} from "@angular/router"
 import { MasterPageComponent } from './OssApp.MasterPageComponent';
 import { HeaderComponent } from '../Common/Header/Header.component';
@@ -12,6 +12,8 @@ import { FooterComponent } from '../Common/Foot/Footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppModule } from '../app.module';
 import { HomeComponent } from './Home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -25,7 +27,7 @@ import { HomeComponent } from './Home.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot(MainRoutes),
-    FormsModule,HttpClientModule,AppModule
+    FormsModule,HttpClientModule,AppModule, BrowserAnimationsModule,ReactiveFormsModule
 
   ],
 

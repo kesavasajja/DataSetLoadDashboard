@@ -1,4 +1,11 @@
 
+.container{
+  align: end;
+
+}
+
+
+
 .fw{
   font-weight: bold;
 
@@ -132,6 +139,9 @@ td {
   white-space: nowrap;
 }
 
+/* seaech box */
+
+
 
 .resizer {
   position: absolute;
@@ -157,26 +167,22 @@ td {
 .table th {
   border: 1px solid #ccc;
 }
-.scrolling-wrapper
-{
-    overflow-x: scroll;  overflow-y: hidden;  white-space: nowrap;
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
 }
 
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.back {
+  background-color: #f1f1f1;
+  color: black;
+}
 
 
 

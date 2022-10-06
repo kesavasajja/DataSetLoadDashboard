@@ -1,0 +1,43 @@
+ <div>
+  <a href="Home" class="back">&laquo; Back</a>
+</div>
+<div class="container" class="col px-md-0">
+  <div class="row-lg-8">
+    <div class="card-action">
+      <table  class="table mt-4">
+        <thead >
+            <tr >
+                <th scope="col" class="fw" ><div class="resizer" ></div>Dataset Name&nbsp;<i (click)="sort('dataset_name')" class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" ><div class="resizer"></div>Age Of Data&nbsp;<i (click)="sort('age_of_data')" class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" ><div class="resizer"></div>Frequency&nbsp;<i (click)="sort('frequency_Internally')" class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" ><div class="resizer"></div>Status&nbsp;<i (click)="sort('status')"class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" ><div class="resizer"></div>Responsible Team&nbsp;<i (click)="sort('source')"class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" ><div class="resizer"></div>Delivery Method&nbsp;<i (click)="sort('delivery_method')" class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" ><div class="resizer"></div>Delivery Date&nbsp;<i (click)="sort('delivery_date')" class="fa fa-sort"></i></th>
+
+                <th scope="col" class="fw" ><div class="resizer"></div>Frequency From OS&nbsp;<i (click)="sort('frequency_from_OS')" class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" ><div class="resizer"></div>Next Update&nbsp;<i (click)="sort('next_Update')" class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" ><div class="resizer"></div>Used By&nbsp;<i (click)="sort('used_by')" class="fa fa-sort"></i></th>
+                <th scope="col" class="fw" ><div class="resizer"></div>Comments&nbsp;<i (click)="sort('supply_format')" class="fa fa-sort"></i></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataset of _datasets | orderBy: key: reverse " >
+
+                <td>{{dataset.dataset_name}}</td>
+                <td>{{dataset.age_of_data}}</td>
+                <td>{{dataset.frequency_Internally}}</td>
+                <td>{{dataset.status}}</td>
+                <td>{{dataset.source}}</td>
+                <td>{{dataset.delivery_method}}</td>
+                <td>{{dataset.delivery_date}}</td>
+                <td>{{dataset.frequency_from_OS}}</td>
+                <td>{{dataset.next_Update}}</td>
+                <td>{{dataset.used_by}}</td>
+                <td>{{dataset.supply_format}}</td>
+
+      </table>
+
+      </div>
+

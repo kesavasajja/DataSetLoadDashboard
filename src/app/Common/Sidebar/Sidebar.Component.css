@@ -1,0 +1,6 @@
+
+#sidebar{
+  position:absolute;
+ flex-shrink: 0;
+ top: 0;
+}

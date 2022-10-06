@@ -6,12 +6,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatasetsComponent } from './Home/datasets/datasets.component';
 import { HomeComponent } from './Home/Home.component';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'
 import { Ng2OrderModule } from 'ng2-order-pipe'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule, PaginationService } from 'ngx-pagination';
 import { NgHorizontalScrollModule } from 'angular-horizontal-scroll-table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+
+import { MatButtonModule } from '@angular/material/button';
+import { AllDatasetsComponent } from './all-datasets/all-datasets.component';
+
+import { InProgressComponent } from './in-progress/in-progress.component';
+import { ReceivedComponent } from './received/received.component';
+import { CompletedComponent } from './completed/completed.component';
+import { OnHoldComponent } from './on-hold/on-hold.component';
+import { AgGridModule } from 'ag-grid-angular';
+import {DataTablesModule} from 'angular-datatables';
 import { NgChartsModule } from 'ng2-charts';
 
 
@@ -22,7 +32,14 @@ import { NgChartsModule } from 'ng2-charts';
   declarations: [
     AppComponent,
     DatasetsComponent,
-    HomeComponent
+    HomeComponent,
+     AllDatasetsComponent,
+     InProgressComponent,
+     ReceivedComponent,
+     CompletedComponent,
+     OnHoldComponent,
+
+
 
   ],
   imports: [
@@ -37,7 +54,14 @@ import { NgChartsModule } from 'ng2-charts';
     Ng2SearchPipeModule,
     NgHorizontalScrollModule,
     MatPaginatorModule,
-    NgChartsModule
+    NgChartsModule,
+
+    MatButtonModule,
+    AgGridModule,
+    DataTablesModule
+
+
+
 
 
   ],

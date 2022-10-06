@@ -9,4 +9,8 @@ import { DbName } from "./dataset.model";
 
         PageCount: number = 0;
 
+
+        isPageLoad!: boolean;
+        filter!: string;
+
     }

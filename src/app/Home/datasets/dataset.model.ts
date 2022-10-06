@@ -11,4 +11,7 @@ export class DbName{
   next_Update: string='';
   used_by: string='';
   supply_format: string=''
+  status_ID: number = 0;
+
+
 }

@@ -1,35 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PaginationService } from '../Services/pagination.service';
+import { ColDef,  ColumnApi, ColumnResizedEvent, FirstDataRenderedEvent, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
 import { DbName } from '../Home/datasets/dataset.model';
-import { DatasetService } from '../Services/dataset.service';
-import { NeXToolService } from '../Services/NeXTool.service';
 import { DbNameModel } from '../Home/datasets/datasets';
+import { DatasetService } from '../Services/dataset.service';
+import {HeaderComponent} from 'src/app/Common/Header/Header.component'
+
+
 
 
 @Component({
-  selector: 'OssApp-NeXTool',
-  templateUrl: './NeXTool.component.html',
-  styleUrls: ['./NeXTool.Component.css']
+  selector: 'app-all-datasets',
+  templateUrl: './all-datasets.component.html',
+  styleUrls: ['./all-datasets.component.css']
 })
-export class NeXToolComponent implements OnInit {
 
-  // data: DbName[] = [];
-  // currentPage: string = '';
-  // totalPage: string = '';
-  // datasets!: DbNameModel ;
-  //   Pageindex: any = 1;
-  // pageNumber: boolean[] = [];
-  // i : any;
 
-   //Pagination Variables
+export class AllDatasetsComponent implements OnInit {
 
-   pageField : number[] = [];
-   exactPageList: any;
-   paginationData!: number;
-   datasetsPerPage: any = 5;
-  //  totalCompanies: any;
-   totalNExtoolDatasetsCount: any;
 
  searchText:any;
  p:number = 1;
@@ -53,7 +42,7 @@ export class NeXToolComponent implements OnInit {
 
   }
   submitted!: boolean;
-  constructor(private datasetService : DatasetService, private fb : FormBuilder, public paginationService: PaginationService ) {
+  constructor(private datasetService : DatasetService, private fb : FormBuilder ) {
 
 
   this.form = this.fb.group({
@@ -76,45 +65,14 @@ export class NeXToolComponent implements OnInit {
    get control() { return this.form.controls; }
   ngOnInit() {
 
-    this.getDatasetsNExTool();
-   // this.getNExToolDatasetsCount();
-   // this.getAllNExToolDatasetsCount();
-   // this.totalNoOfPages();
-   // this.pageNumber[0] = true;
-   // this.paginationService.temppage = 0;
-   // this.getNExToolDatasetsPagination();
+    this.getDatasets();
 
 
   }
 
-  // getNExToolDatasetsCount()
-  // {
-  //   this.datasetService.getNExToolDatasetsCount()
-  //   .subscribe(
-  //     response => {
-  //       console.log(response );
-  //       this._datasets = response;
-  //       console.log(this._datasets.length)
-  //       this.totalPage = (Number(this._datasets.length)/5).toString();
-  //     }
-  //   );
-  // }
 
-  // getNExToolDatasetsPagination()
-  // {
-  //   this.datasetService.getNExToolDatasetsPagination
-  //   (this.Pageindex).subscribe((data: any) => {
-  //     this.datasets = data;
-  //    // this.totalNExtoolDatasetsCount();
-  //     console.log(this.datasets)
-  //     this.data = this.datasets.dbNames;
-  //     this.currentPage = (this.datasets.CurrentIndex).toString();
-  //   })
-  // }
-
-
-  getDatasetsNExTool() {
-    this.datasetService.getDatasetsNExTool()
+  getDatasets() {
+    this.datasetService.getDatasets()
     .subscribe(
       response => {
         console.log(response );
@@ -132,7 +90,7 @@ export class NeXToolComponent implements OnInit {
      response => {
       alert(" record deleted successfully");
      //this.toast.success({detail:"Success Message", summary:"Dataset deleted successfully", duration:2000})
-       this.getDatasetsNExTool();
+       this.getDatasets();
      },
      err=>{
           alert("something went wrong")
@@ -153,7 +111,7 @@ export class NeXToolComponent implements OnInit {
       response => {
         alert(" record updated successfully");
         //this.toast.success({detail:"Success Message", summary:"Dataset updated successfully", duration:2000})
-        this.getDatasetsNExTool();
+        this.getDatasets();
       },
       err=>{
         alert("something went wrong")
@@ -172,37 +130,7 @@ reverse: boolean = false;
   }
 
 
-  //Method For Pagination
-  // totalNoOfPages() {
 
-  //   this.paginationData = Number(this.totalNExtoolDatasetsCount / this.datasetsPerPage);
-  //   let tempPageData = this.paginationData.toFixed();
-  //   if (Number(tempPageData) < this.paginationData) {
-  //     this.exactPageList = Number(tempPageData) + 1;
-  //     this.paginationService.exactPageList = this.exactPageList;
-  //   } else {
-  //     this.exactPageList = Number(tempPageData);
-  //     this.paginationService.exactPageList = this.exactPageList
-  //   }
-  //   this.paginationService.pageOnLoad();
-  //   this.pageField = this.paginationService.pageField;
-
-  // }
-
-  // showDatasetsByPageNumber(page: any, i: number) {
-  //  this.data = [];
-  //   this.pageNumber = [];
-  //   this.pageNumber[i] = true;
-  //   this.Pageindex = page;
-  //    this.getNExToolDatasetsPagination();
-  // }
-
-  // getAllNExToolDatasetsCount() {
-  //   this.datasetService.getNExToolDatasetsCount().subscribe((res: any) => {
-  //     this.totalNExtoolDatasetsCount = res;
-  //     this.totalNoOfPages();
-  //   })
-  // }
   onSubmit(){
 
     this.submitted = true;
@@ -226,7 +154,7 @@ reverse: boolean = false;
    .subscribe(
      response => {
       console.log(response);
-      this.getDatasetsNExTool();
+      this.getDatasets();
       this.dataset = {
         dataset_id:0,
         dataset_name: '',
@@ -251,7 +179,13 @@ reverse: boolean = false;
    }
  }
 
-}
+
+
+
+ }
+
+
+
 
 
 

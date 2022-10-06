@@ -1,4 +1,4 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
+<nav class="sidebar sidebar-offcanvas" id="sidebar" >
   <ul class="nav">
     <li class="nav-item nav-profile border-bottom">
       <a href="#" class="nav-link flex-column">
@@ -18,14 +18,14 @@
         <img class="sidebar-brand-logomini" src="assets/images/logo-mini.png" alt="" />
         <div class="small font-weight-light pt-1">OSS Dashboard</div>
       </a>
-      <form class="d-flex align-items-center" action="#">
+      <!-- <form class="d-flex align-items-center" action="#">
         <div class="input-group">
           <div class="input-group-prepend">
             <i class="input-group-text border-0 mdi mdi-magnify"></i>
           </div>
           <input type="text" class="form-control border-0" placeholder="Search" />
         </div>
-      </form>
+      </form> -->
     </li>
     <li class="pt-2 pb-1">
 
@@ -36,6 +36,15 @@
         <span class="menu-title">Home</span>
       </a>
     </li>
+
+    <li class="nav-item" [routerLinkActive]="'active'">
+
+      <a class="nav-link" [routerLink]="['AllDatasets']" >
+        <i class="mdi mdi-database-search menu-icon"></i>
+        <span class="menu-title">All Datasets</span>
+      </a>
+    </li>
+
     <li class="nav-item" [routerLinkActive]="'active'">
 
       <a class="nav-link" [routerLink]="['GcommsHome/Gcomms']" >
@@ -43,13 +52,32 @@
         <span class="menu-title">Gcomms</span>
       </a>
     </li>
+
+
     <li class="nav-item" [routerLinkActive]="'active'">
 
       <a class="nav-link" [routerLink]="['NeXToolHome/NeXTool']" >
         <i class="mdi mdi-database-search menu-icon"></i>
-        <span class="menu-title">NeXTool</span>
+        <span class="menu-title">NExTool</span>
       </a>
     </li>
+
+
+
+    <!-- <ul class="nav">
+      <li class="has-sub">
+        <a href="#">
+          <b class="caret"></b>
+          <i class="fa fa-th-large"></i>
+          <span>Dashboard</span>
+        </a>
+        <ul class="sub-menu active">
+          <li><a href="#">Dashboard v1</a></li>
+          <li><a href="#">Dashboard v2</a></li>
+        </ul>
+      </li>
+    </ul> -->
+
 
   </ul>
 </nav>

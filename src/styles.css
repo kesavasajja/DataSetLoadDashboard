@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+
+@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+
+:root {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+  overflow: hidden;
+}
+
+#sidebar{
+   position:sticky;
+  flex-shrink: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+
+
+.footer{
+
+  flex-shrink: 0;
+
+}
+
+::-webkit-scrollbar {
+  width: 0;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* border size */
+.content-wrapper {
+
+  padding: 15px 15px;
+}
+/* second border */
+.page-header {
+  margin: 0 0 0 0;
+}
+
+
