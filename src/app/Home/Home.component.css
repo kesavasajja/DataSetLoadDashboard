@@ -80,12 +80,30 @@ p {
 .card-row-action a{
   display:block;
   cursor: pointer;
-  padding: 1em;
+  padding: 2em;
   background-color: #af50ef;
   color: white;
 
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#chart-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.pieChart{
+  height: 345px;
+  position: static;
+}
+.apexcharts-legend apexcharts-align-center apx-legend-position-left{
+  position: bottom;
+}
 
 
 

@@ -21,12 +21,12 @@ export class DatasetsComponent implements OnInit {
     status:'',
     source:'',
     delivery_method:'',
-    delivery_date:'',
+    delivery_date:new Date,
     frequency_from_OS:'',
     next_Update:'',
     used_by:'',
     supply_format:'',
-    status_ID: 0,
+    status_ID: ''
 
 
   }
@@ -108,12 +108,12 @@ export class DatasetsComponent implements OnInit {
         status:'',
         source:'',
         delivery_method:'',
-        delivery_date:'',
+        delivery_date:new Date,
         frequency_from_OS:'',
         next_Update:'',
         used_by:'',
         supply_format:'',
-        status_ID: 0,
+        status_ID: '',
 
      };
      }
@@ -121,6 +121,7 @@ export class DatasetsComponent implements OnInit {
 
    } else{
      this.updateDataset(this.dataset)
+     this.getDatasets;
      this.form.markAsUntouched();
    }
  }

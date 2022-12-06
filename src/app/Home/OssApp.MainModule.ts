@@ -13,10 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppModule } from '../app.module';
 import { HomeComponent } from './Home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
-
-
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({

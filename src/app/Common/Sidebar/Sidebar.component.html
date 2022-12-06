@@ -1,13 +1,13 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar" >
-  <ul class="nav">
+<nav  class="sidebar-offcanvas sidebar">
+  <ul style="position:fixed;" class="nav">
     <li class="nav-item nav-profile border-bottom">
       <a href="#" class="nav-link flex-column">
         <div class="nav-profile-image">
           <img src="assets/images/faces/face1.jpg" alt="profile" />
           <!--change to offline or busy as needed-->
         </div>
-        <div class="nav-profile-text d-flex ml-0 mb-3 flex-column">
-          <span class="font-weight-semibold mb-1 mt-2 text-center">R7848022</span>
+        <div class="nav-profile-text d-flex ml-0 mb-3 flex-column"  >
+          <span class="font-weight-semibold mb-1 mt-2 text-center">{{Userid}}</span>
           <span class="text-secondary icon-sm text-center"></span>
         </div>
       </a>
@@ -41,26 +41,28 @@
 
       <a class="nav-link" [routerLink]="['AllDatasets']" >
         <i class="mdi mdi-database-search menu-icon"></i>
-        <span class="menu-title">All Datasets</span>
+        <span class="menu-title">Datasets</span>
       </a>
     </li>
 
-    <li class="nav-item" [routerLinkActive]="'active'">
+
+
+    <!-- <li class="nav-item" [routerLinkActive]="'active'">
 
       <a class="nav-link" [routerLink]="['GcommsHome/Gcomms']" >
         <i class="mdi mdi-database-search menu-icon"></i>
         <span class="menu-title">Gcomms</span>
       </a>
-    </li>
+    </li> -->
 
 
-    <li class="nav-item" [routerLinkActive]="'active'">
+    <!-- <li class="nav-item" [routerLinkActive]="'active'">
 
       <a class="nav-link" [routerLink]="['NeXToolHome/NeXTool']" >
         <i class="mdi mdi-database-search menu-icon"></i>
         <span class="menu-title">NExTool</span>
       </a>
-    </li>
+    </li> -->
 
 
 

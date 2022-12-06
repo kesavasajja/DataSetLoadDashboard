@@ -1,59 +1,98 @@
 
 <div class="row">
-  <div class="col-lg-8">
+
+  <div class="col-md-7">
+    <br><br>
     <div class="container">
       <div class="card mt-2">
+
         <div class="card-body">
+
           <h4 class="card-title">Bar Chart</h4>
           <canvas
             baseChart
-            [data]="salesData"
+            [data]="salesdata"
             [type]="'bar'"
             [options]="chartOptions"
           >
           </canvas>
         </div>
+
       </div>
     </div>
 
   </div>
-  <div class="col-lg-4">
+
+  <div class="col-md-1"></div>
+
+  <div class="col-md-4">
 
 
-  <div class="row  flex-column align-items-middle">
-     <!-- <a class="btn btn-primary btn-lg" href="datasets" role="button">Add Dataset</a> &nbsp; -->
+<br><br>
+
+   <!-- <div class="row  flex-column align-items-middle">
     <div  class="col-md-12">
-
-      <a href="InProgress" class="card card-1">
+      <br><br>
+      <a href="AllDatasets" class="card card-1">
         <h3 >In Progress</h3>
         <p>Datasets Information</p>
       </a>
     </div>
-    &nbsp;
-
+    &nbsp;   &nbsp;
+  <br>
     <div class="col-md-12">
-      <a href="Received" class="card card-2">
+      <a href="AllDatasets" class="card card-2">
         <h3>Received</h3>
         <p>Datasets Information</p>
       </a>
     </div>
     &nbsp;
-
+    <br>
     <div class="col-md-12">
-      <a href="Completed" class="card card-3">
+      <a href="AllDatasets" class="card card-3">
         <h3>Completed</h3>
         <p>Datasets Information</p>
       </a>
     </div>
     &nbsp;
-
+    <br>
     <div class="col-md-12">
-      <a href="OnHold" class="card card-4">
+      <a href="AllDatasets" class="card card-4">
         <h3>On Hold</h3>
         <p>Datasets Information</p>
       </a>
     </div>
+  </div> -->
+
+
+
+ <!-- <ngx-charts-pie-chart
+ [results]="saleData"
+ [legend]="true"
+ [legendTitle]="'Product Sale Report'"
+ [view]="[1000,300]"
+ [labels]="true" >
+</ngx-charts-pie-chart> -->
+
+ <div class="container">
+  <div class="card mt-8">
+
+<div class="pieChart">
+
+
+      <apx-chart
+      [series]="chartSeries"
+      [chart]="chartDetails"
+      [title]="chartTitle"
+      [dataLabels]="chartDataLabels"
+      [labels]="chartLabels"
+     [legend]="responsiveChart"
+    ></apx-chart>
   </div>
+
 
   </div>
 </div>
+  </div>
+</div>
+

@@ -1,4 +1,4 @@
-<nav class="navbar default-layout-navbar col-lg-14 col-12 p-0 fixed-top d-flex flex-row" id="header">
+<nav class="navbar default-layout-navbar col-lg-14 col-12 p-0 d-flex flex-row fixed-topp" id="header">
   <div class="navbar-menu-wrapper d-flex align-items-stretch">
     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
       <span class="mdi mdi-chevron-double-left"></span>
@@ -6,7 +6,7 @@
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
       <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
     </div>
-    <ul class="navbar-nav">
+    <!-- <ul class="navbar-nav">
       <li class="nav-item dropdown">
         <a class="nav-link" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
           <i class="mdi mdi-email-outline"></i>
@@ -93,7 +93,7 @@
           <h6 class="p-3 font-13 mb-0 text-primary text-center">View all notifications</h6>
         </div>
       </li>
-    </ul>
+    </ul> -->
     <ul class="navbar-nav navbar-nav-right">
 
 
@@ -109,192 +109,4 @@
     </button>
   </div>
 </nav>
-
-
-<!--Modals-->
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modify Dataset</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-          <div class="card-body form-row">
-
-                  <div class="form-group col-md-6">
-                      <label for="DatasetName">Dataset Name</label>
-                      <input type="text" formControlName="DatasetName" class="form-control" [(ngModel)]="dataset.dataset_name" required>
-
-         <div *ngIf="control['DatasetName'].touched && control['DatasetName'].invalid" class="DatasetName" style="color: red;">
-          <div *ngIf="control['DatasetName'].errors && control['DatasetName'].errors['required']">Dataset Name is required!</div>
-          <div *ngIf="control['DatasetName'].errors && control['DatasetName'].errors['pattern']">Invalid!</div>
-        </div>
-                  </div>
-
-                  <div class="form-group col-sm-6">
-                      <label for="AgeOfData">Age Of Data</label>
-                      <input type="text" formControlName="AgeOfData" class="form-control" [(ngModel)]="dataset.age_of_data" required>
-
-         <div *ngIf="control['AgeOfData'].touched && control['AgeOfData'].invalid" class="AgeOfData" style="color: red;">
-          <div *ngIf="control['AgeOfData'].errors && control['AgeOfData'].errors['required']">Age Of Data is required!</div>
-          <div *ngIf="control['AgeOfData'].errors && control['AgeOfData'].errors['pattern']">Invalid!</div>
-        </div>
-                  </div>
-                  <div class="form-group col-sm-6">
-                    <label for="Frequency">Frequency</label>
-                    <input type="text" formControlName="Frequency" class="form-control" [(ngModel)]="dataset.frequency_Internally" required>
-
-         <div *ngIf="control['Frequency'].touched && control['Frequency'].invalid" class="Frequency" style="color: red;">
-          <div *ngIf="control['Frequency'].errors && control['Frequency'].errors['required']">Frequency is required!</div>
-          <div *ngIf="control['Frequency'].errors && control['Frequency'].errors['pattern']">Invalid!</div>
-        </div>
-                </div>
-
-
-
-                 <div class="form-group col-sm-6">
-                  <label for="status">Status</label>
-                  <input type="text" formControlName="status" class="form-control" [(ngModel)]="dataset.status" required>
-
-         <div *ngIf="control['status'].touched && control['status'].invalid" class="status" style="color: red;">
-          <div *ngIf="control['status'].errors && control['status'].errors['required']">Status is required!</div>
-          <div *ngIf="control['status'].errors && control['status'].errors['pattern']">Invalid!</div>
-        </div>
-              </div>
-
-                <div class="form-group col-sm-6">
-                  <label for="source">Responsible Team</label>
-                  <input type="text" formControlName="source" class="form-control" [(ngModel)]="dataset.source" required>
-
-         <div *ngIf="control['source'].touched && control['source'].invalid" class="source" style="color: red;">
-          <div *ngIf="control['source'].errors && control['source'].errors['required']">Responsible Team is required!</div>
-          <div *ngIf="control['source'].errors && control['source'].errors['pattern']">Invalid!</div>
-        </div>
-              </div>
-
-
-              <div class="form-group col-sm-6">
-                <label for="delivery_method">Delivery Method</label>
-                <input type="text" formControlName="delivery_method" class="form-control" [(ngModel)]="dataset.delivery_method" required>
-
-        <div *ngIf="control['delivery_method'].touched && control['delivery_method'].invalid" class="delivery_method" style="color: red;">
-        <div *ngIf="control['delivery_method'].errors && control['delivery_method'].errors['required']">Delivery Method is required!</div>
-        <div *ngIf="control['delivery_method'].errors && control['delivery_method'].errors['pattern']">Invalid!</div>
-        </div>
-            </div>
-
-
-            <div class="form-group col-sm-6">
-              <label for="delivery_date">Delivery Date</label>
-              <input type="text" formControlName="delivery_date" class="form-control" [(ngModel)]="dataset.delivery_date" required>
-
-        <div *ngIf="control['delivery_date'].touched && control['delivery_date'].invalid" class="delivery_date" style="color: red;">
-        <div *ngIf="control['delivery_date'].errors && control['delivery_date'].errors['required']">Delivery Date is required!</div>
-        <div *ngIf="control['delivery_date'].errors && control['delivery_date'].errors['pattern']">Invalid!</div>
-        </div>
-          </div>
-
-
-          <div class="form-group col-sm-6">
-            <label for="frequency_from_OS">Frequency From OS</label>
-            <input type="text" formControlName="frequency_from_OS" class="form-control" [(ngModel)]="dataset.frequency_from_OS" required>
-
-        <div *ngIf="control['frequency_from_OS'].touched && control['frequency_from_OS'].invalid" class="frequency_from_OS" style="color: red;">
-        <div *ngIf="control['frequency_from_OS'].errors && control['frequency_from_OS'].errors['required']">Frequency From OS is required!</div>
-        <div *ngIf="control['frequency_from_OS'].errors && control['frequency_from_OS'].errors['pattern']">Invalid!</div>
-        </div>
-        </div>
-
-
-        <div class="form-group col-sm-6">
-          <label for="next_Update">Next Update</label>
-          <input type="text" formControlName="next_Update" class="form-control" [(ngModel)]="dataset.next_Update" required>
-
-        <div *ngIf="control['next_Update'].touched && control['next_Update'].invalid" class="next_Update" style="color: red;">
-        <div *ngIf="control['next_Update'].errors && control['next_Update'].errors['required']">Next Update is required!</div>
-        <div *ngIf="control['next_Update'].errors && control['next_Update'].errors['pattern']">Invalid!</div>
-        </div>
-        </div>
-
-
-
-        <div class="form-group col-sm-6">
-          <label for="usedBy">Used By</label>
-          <select type="text" formControlName="usedBy" class="form-control font-color"  [(ngModel)]="dataset.used_by" required >
-            <option>Gcomms</option>
-
-          </select>
-
-   <div *ngIf="control['usedBy'].touched && control['usedBy'].invalid" class="usedBy" style="color: red;">
-    <div *ngIf="control['usedBy'].errors && control['usedBy'].errors['required']">Used By is required!</div>
-    <div *ngIf="control['usedBy'].errors && control['usedBy'].errors['pattern']">Invalid!</div>
-  </div>
-      </div>
-
-
-            <div class="form-group col-sm-6">
-              <label for="supplyFormat">Comments</label>
-              <input type="text" formControlName="supplyFormat" class="form-control" [(ngModel)]="dataset.supply_format" required >
-
-         <div *ngIf="control['supplyFormat'].touched && control['supplyFormat'].invalid" class="supplyFormat" style="color: red;">
-          <div *ngIf="control['supplyFormat'].errors && control['supplyFormat'].errors['required']">Comments are required!</div>
-          <div *ngIf="control['supplyFormat'].errors && control['supplyFormat'].errors['pattern']">Invalid!</div>
-        </div>
-          </div>
-
-          <div class="form-group col-sm-6">
-            <label for="status_ID">Status-ID</label>
-            <select type="text" formControlName="status_ID" class="form-control font-color"  [(ngModel)]="dataset.status_ID" required >
-              <!-- <option selected disabled value="undefined">Choose...</option> -->
-              <option>In Progress</option>
-              <option>Received</option>
-              <option>Completed</option>
-              <option>On Hold</option>
-
-            </select>
-
-       <div *ngIf="control['status_ID'].touched && control['status_ID'].invalid" class="status_ID" style="color: red;">
-        <div *ngIf="control['status_ID'].errors && control['status_ID'].errors['required']">status-id are required!</div>
-        <div *ngIf="control['status_ID'].errors && control['status_ID'].errors['pattern']">Invalid!</div>
-      </div>
-        </div>
-
-
-          <div class="form-group col-sm-6">
-            </div>
-            <div class="modal-footer">
-
-              <input class="btn btn-primary"  type="submit" value="Submit">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-            </div>
-          </div>
-        </form>
-      </div>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

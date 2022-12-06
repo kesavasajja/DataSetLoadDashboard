@@ -13,6 +13,8 @@ import { NgHorizontalScrollModule } from 'angular-horizontal-scroll-table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { DataTablesModule } from 'angular-datatables';
+import { NgChartsModule } from'ng2-charts';
+import { ApexOptions } from 'apexcharts';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { DataTablesModule } from 'angular-datatables';
     RouterModule.forChild(GcommsRoutes),
     CommonModule,FormsModule,HttpClientModule,ReactiveFormsModule,
     Ng2SearchPipeModule,Ng2OrderModule,NgxPaginationModule,NgHorizontalScrollModule,
-    MatPaginatorModule,MatButtonModule,DataTablesModule
+    MatPaginatorModule,MatButtonModule,DataTablesModule,NgChartsModule
 
   ],
   providers: [GcommsService],

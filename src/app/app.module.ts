@@ -12,7 +12,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule, PaginationService } from 'ngx-pagination';
 import { NgHorizontalScrollModule } from 'angular-horizontal-scroll-table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { NgApexchartsModule } from "ng-apexcharts";
 import { MatButtonModule } from '@angular/material/button';
 import { AllDatasetsComponent } from './all-datasets/all-datasets.component';
 
@@ -23,6 +23,10 @@ import { OnHoldComponent } from './on-hold/on-hold.component';
 import { AgGridModule } from 'ag-grid-angular';
 import {DataTablesModule} from 'angular-datatables';
 import { NgChartsModule } from 'ng2-charts';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ApexOptions} from 'apexcharts'
+
 
 
 
@@ -55,8 +59,7 @@ import { NgChartsModule } from 'ng2-charts';
     NgHorizontalScrollModule,
     MatPaginatorModule,
     NgChartsModule,
-
-    MatButtonModule,
+    NgApexchartsModule,
     AgGridModule,
     DataTablesModule
 

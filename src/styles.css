@@ -15,12 +15,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   overflow: hidden;
 }
 
-#sidebar{
+/* #sidebar{
    position:sticky;
   flex-shrink: 0;
   top: 0;
   overflow: hidden;
-}
+} */
 
 
 
@@ -37,11 +37,32 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* border size */
 .content-wrapper {
 
-  padding: 15px 15px;
+  padding: 0px 15px;
 }
 /* second border */
 .page-header {
   margin: 0 0 0 0;
 }
+
+element.style {
+  position: bottom;
+}
+
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  padding-left: calc(var(--bs-gutter-x) * .0);
+}
+
+/* .table-responsive {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+} */
+
+
+
 
 

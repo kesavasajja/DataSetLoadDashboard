@@ -6,12 +6,11 @@ export class DbName{
   status:string='';
   source: string='';
   delivery_method: string='';
-  delivery_date: string='';
+  delivery_date: Date = new Date("dd-MM-YYYY");
   frequency_from_OS: string='';
   next_Update: string='';
   used_by: string='';
   supply_format: string=''
-  status_ID: number = 0;
-
+  status_ID: string = '';
 
 }

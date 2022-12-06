@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { DbName } from '../Home/datasets/dataset.model';
 import { DbNameModel } from '../Home/datasets/datasets';
 import { AllDatasetsComponent } from 'src/app/all-datasets/all-datasets.component';
+import { StatusCount } from '../Home/datasets/StatusCount';
 
 @Injectable({
   providedIn: 'root'
@@ -78,6 +79,12 @@ export class DatasetService {
            return this._http.get<DbName[]>(this.baseUrl+'/getDatasetsCompleted');
         }
 
+
+        getDatasetsStatusCount(): Observable<DbName[]>
+      {
+           return this._http.get<any[]>(this.baseUrl+'/getDatasetsStatusCount');
+        }
+
       getBarChartDatasets(): Observable<DbName[]>
       {
            return this._http.get<DbName[]>(this.baseUrl+'/getBarChartDatasets');
@@ -104,6 +111,11 @@ export class DatasetService {
     updateDataset(dataset: DbName): Observable<DbName>
     {
       return this._http.post<DbName>(this.baseUrl+'/updateDatasets' + '/' + dataset.dataset_id, dataset);
+    }
+
+    pageStart(): Observable<string>
+    {
+         return this._http.get<string>(this.baseUrl+'/pageStart');
     }
 
 }

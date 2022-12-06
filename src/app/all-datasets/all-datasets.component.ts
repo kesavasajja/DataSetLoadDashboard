@@ -6,6 +6,9 @@ import { DbName } from '../Home/datasets/dataset.model';
 import { DbNameModel } from '../Home/datasets/datasets';
 import { DatasetService } from '../Services/dataset.service';
 import {HeaderComponent} from 'src/app/Common/Header/Header.component'
+import { NeXToolComponent } from '../NeXTool/NeXTool.Component';
+import { GcommsComponent } from '../Gcomms/Gcomms.Component';
+import { Console } from 'console';
 
 
 
@@ -16,15 +19,58 @@ import {HeaderComponent} from 'src/app/Common/Header/Header.component'
   styleUrls: ['./all-datasets.component.css']
 })
 
+// examplearray = _datasets;
+
+// onchange(){
+//   this. value;
+//   if value == NeXToolComponent
+//   examplearray = nextroolarray
+//   if value == GcommsComponent
+//   examplearray = gcommsarray
+//   else
+//   examplearray == _datasets
+// }
 
 export class AllDatasetsComponent implements OnInit {
+  value: any;
+  alldatasets: any;
+  nextool: any;
+  gcomms: any;
+  valueD:any;
+  Userid: any;
+  _maindataSets: DbName[] = [];
+user:any;
+isHide= true;
 
+ngClick()
+{
+  console.log(this.Userid)
+
+}
+
+
+ adm: String[] =  [  "PRODAPT\\praveen.r", "PRODAPT\\kesava.s"];
+
+//"PRODAPT\\kesava.s",
+
+onChange()
+{
+  console.log("ValueD = "+this.valueD);
+  this.ngOnChange();
+
+}
+
+
+//_datasetsInfo: [] = [];
 
  searchText:any;
  p:number = 1;
  pageSize: number = 25;
   form : FormGroup;
   _datasets: DbName[]= [];
+  _datasetsNExTool: DbName[] = [];
+_datasetsGcomms: DbName[] = [];
+
   dataset: DbName = {
     dataset_id:0,
     dataset_name: '',
@@ -33,12 +79,12 @@ export class AllDatasetsComponent implements OnInit {
     status:'',
     source:'',
     delivery_method:'',
-    delivery_date:'',
+    delivery_date:new Date(),
     frequency_from_OS:'',
     next_Update:'',
     used_by:'',
     supply_format:'',
-    status_ID: 0
+    status_ID: ''
 
   }
   submitted!: boolean;
@@ -66,8 +112,29 @@ export class AllDatasetsComponent implements OnInit {
   ngOnInit() {
 
     this.getDatasets();
+    this.getDatasetsGcomms();
+    this.getDatasetsNExTool();
+    this.getDatasetsReceived();
+    this.getDatasetsCompleted();
+    this.getDatasetsInProgress();
+    this.getDatasetsOnHold();
+    this.pageStart();
+  }
 
+  ngOnChange(){
 
+    if( this.valueD == "Gcomms" )
+  {
+         this._datasets =  this._datasetsGcomms
+  }
+  else if(this.valueD == "NExTool")
+  {
+     this._datasets = this._datasetsNExTool
+  }
+  else
+  {
+        this._datasets = this._maindataSets
+  }
   }
 
 
@@ -77,10 +144,94 @@ export class AllDatasetsComponent implements OnInit {
       response => {
         console.log(response );
         this._datasets = response;
+        this._maindataSets=response;
         console.log(this._datasets)
       }
     );
   }
+
+  getDatasetsGcomms() {
+    this.datasetService.getDatasetsGcomms()
+    .subscribe(
+      response => {
+        console.log(response );
+        this._datasetsGcomms = response;
+        console.log(this._datasetsGcomms)
+      }
+    );
+  }
+
+  pageStart() {
+    this.datasetService.pageStart().subscribe(
+      (data:any) => {
+        console.log(data );
+        this.Userid = data.username;
+        // conditiom
+        if(this.adm.includes(this.Userid))
+    {
+        this.isHide = false;
+    }
+       console.log(this.Userid)
+      });
+
+  }
+
+  getDatasetsNExTool() {
+    this.datasetService.getDatasetsNExTool()
+    .subscribe(
+      response => {
+        console.log(response );
+        this._datasetsNExTool = response;
+        console.log(this._datasetsNExTool)
+      }
+    );
+  }
+
+  getDatasetsReceived() {
+    this.datasetService.getDatasetsReceived()
+    .subscribe(
+      response => {
+        console.log(response );
+        this._datasets = response;
+        console.log(this._datasets)
+      }
+    );
+  }
+
+  getDatasetsCompleted() {
+    this.datasetService.getDatasetsCompleted()
+    .subscribe(
+      response => {
+        console.log(response );
+        this._datasets = response;
+        console.log(this._datasets)
+      }
+    );
+  }
+
+  getDatasetsInProgress() {
+    this.datasetService.getDatasetsInProgress()
+    .subscribe(
+      response => {
+        console.log(response );
+        this._datasets = response;
+        console.log(this._datasets)
+      }
+    );
+  }
+
+  getDatasetsOnHold() {
+    this.datasetService.getDatasetsOnHold()
+    .subscribe(
+      response => {
+        console.log(response );
+        this._datasets = response;
+       // console.log(this._datasets)
+      }
+    );
+  }
+
+
 
   deleteDataset(dataset: DbName)
  {
@@ -101,7 +252,6 @@ export class AllDatasetsComponent implements OnInit {
 
  populateForm(dataset: DbName)
  {
-
    this.dataset = dataset;
  }
   updateDataset(dataset: DbName) {
@@ -163,18 +313,20 @@ reverse: boolean = false;
         status:'',
         source:'',
         delivery_method:'',
-        delivery_date:'',
+        delivery_date:new Date,
         frequency_from_OS:'',
         next_Update:'',
         used_by:'',
         supply_format:'',
-        status_ID: 0
+        status_ID: ''
      };
      }
    );
 
    } else{
      this.updateDataset(this.dataset)
+     console.log(this.dataset);
+     this.getDatasets();
      this.form.markAsUntouched();
    }
  }
